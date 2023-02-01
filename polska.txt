@@ -1,0 +1,10 @@
+int main 2 FUNCTION
+b a int 2 DECLARATION
+j i d int 3 DECLARATION
+98 32 10 5 +  a + + +  a =
+a 2 b - + b =
+0 i = m1 DECLARATION i 100 <= m2 BF 1 i + m1 BRL m2 DEFL
+i j = m1 DECLARATION j 20 <= m2 BF 2 j + m1 BRL m2 DEFL
+b a + d =
+1 a - a =
+d RETURN
