@@ -1,6 +1,6 @@
 #include "syntax_tree.h"
 
-//проверка на терминал
+//РїСЂРѕРІРµСЂРєР° РЅР° С‚РµСЂРјРёРЅР°Р»
 bool is_terminal(std::string str) {
 	for (auto& symb : str)
 		if (symb == ' ')

@@ -33,7 +33,7 @@ bool semantic_analysator::Begin() {
 	begin->polska += get_lexeme(begin->net_nichego_vajnee_semji[0]->field) + " ";
 	begin->polska += get_lexeme(begin->net_nichego_vajnee_semji[1]->field);
 	begin->polska += " 2 FUNCTION\n";
-	//помечаем, что мейн интовый
+	//РїРѕРјРµС‡Р°РµРј, С‡С‚Рѕ РјРµР№РЅ РёРЅС‚РѕРІС‹Р№
 	table.set_atribute(get_lexeme(begin->net_nichego_vajnee_semji[1]->field),
 		get_lexeme(begin->net_nichego_vajnee_semji[0]->field));
 	return 1;
@@ -41,7 +41,7 @@ bool semantic_analysator::Begin() {
 
 bool semantic_analysator::Descriptions() {
 	auto descriptions = tree.root->net_nichego_vajnee_semji[1];
-	//идём по дескрам
+	//РёРґС‘Рј РїРѕ РґРµСЃРєСЂР°Рј
 	for (auto &elem : descriptions->net_nichego_vajnee_semji) {
 		if (!Varlist(elem->net_nichego_vajnee_semji[1], "int"))
 			return 0;
@@ -59,7 +59,7 @@ bool semantic_analysator::Varlist(std::shared_ptr<node_tree> n_t, std::string s)
 		auto temp1 = n_t->net_nichego_vajnee_semji[i];
 		info infa(temp1->field);
 		if (table.find(infa).atribute == "int") {
-			std::cout << "\nПеременная ранее объявлялась!\n";
+			std::cout << "\nРџРµСЂРµРјРµРЅРЅР°СЏ СЂР°РЅРµРµ РѕР±СЉСЏРІР»СЏР»Р°СЃСЊ!\n";
 			return 0;
 		}
 		varlist->polska = infa.lexem + " " + varlist->polska;
@@ -70,13 +70,13 @@ bool semantic_analysator::Varlist(std::shared_ptr<node_tree> n_t, std::string s)
 
 bool semantic_analysator::Operators(std::shared_ptr<node_tree> n_t) {
 	auto operators = n_t;
-	//идём по ОПАМ
+	//РёРґС‘Рј РїРѕ РћРџРђРњ
 	for (auto& elem : operators->net_nichego_vajnee_semji) {
 		info infa(elem->net_nichego_vajnee_semji[0]->field);
 		if (infa.type == "FOR") {
 			info infa2(elem->net_nichego_vajnee_semji[2]->field);
 			if (table.find(infa2).atribute != "int") {
-				std::cout << "\nПеременная не была объявлена, дурила!\n";
+				std::cout << "\nРџРµСЂРµРјРµРЅРЅР°СЏ РЅРµ Р±С‹Р»Р° РѕР±СЉСЏРІР»РµРЅР°, РґСѓСЂРёР»Р°!\n";
 				return 0;
 			}
 			std::string buff = "";
@@ -100,7 +100,7 @@ bool semantic_analysator::Operators(std::shared_ptr<node_tree> n_t) {
 		else {
 			std::string znak = "=";
 			if (table.find(infa).atribute != "int") {
-				std::cout << "\nПеременная не была объявлена, дурила!\n";
+				std::cout << "\nРџРµСЂРµРјРµРЅРЅР°СЏ РЅРµ Р±С‹Р»Р° РѕР±СЉСЏРІР»РµРЅР°, РґСѓСЂРёР»Р°!\n";
 				return 0;
 			}
 			if (!Expr(elem->net_nichego_vajnee_semji[2], "int"))
@@ -115,7 +115,7 @@ bool semantic_analysator::Operators(std::shared_ptr<node_tree> n_t) {
 
 bool semantic_analysator::Expr(std::shared_ptr<node_tree> n_t, std::string s) {
 	auto expr = n_t;
-	//иду по симпл экспрам
+	//РёРґСѓ РїРѕ СЃРёРјРїР» СЌРєСЃРїСЂР°Рј
 	for (int i = 0; i < n_t->get_childs().size(); i+=2) {
 		std::string znak = "";
 		if (!S1mpleExpr(n_t->net_nichego_vajnee_semji[i], s))
@@ -152,7 +152,7 @@ bool semantic_analysator::S1mpleExpr(std::shared_ptr<node_tree> n_t, std::string
 	}
 	else if (infa.type == "IDENTIF") {
 		if (table.find(infa).atribute != "int") {
-			std::cout << "\nПеременная не была объявлена, дурила!\n";
+			std::cout << "\nРџРµСЂРµРјРµРЅРЅР°СЏ РЅРµ Р±С‹Р»Р° РѕР±СЉСЏРІР»РµРЅР°, РґСѓСЂРёР»Р°!\n";
 			return 0;
 		}
 		simplexpr->polska += infa.lexem;
@@ -167,12 +167,12 @@ bool semantic_analysator::S1mpleExpr(std::shared_ptr<node_tree> n_t, std::string
 
 bool semantic_analysator::End() {
 	auto end = tree.root->net_nichego_vajnee_semji[3];
-	//развернули токен (тупо очень тупо....)
-	info temp(end->net_nichego_vajnee_semji[1]->field); //лежит переменная ретурна
+	//СЂР°Р·РІРµСЂРЅСѓР»Рё С‚РѕРєРµРЅ (С‚СѓРїРѕ РѕС‡РµРЅСЊ С‚СѓРїРѕ....)
+	info temp(end->net_nichego_vajnee_semji[1]->field); //Р»РµР¶РёС‚ РїРµСЂРµРјРµРЅРЅР°СЏ СЂРµС‚СѓСЂРЅР°
 	auto begin = tree.root->net_nichego_vajnee_semji[0];
-	info temp1(begin->net_nichego_vajnee_semji[1]->field); //лежит функция из бегина
+	info temp1(begin->net_nichego_vajnee_semji[1]->field); //Р»РµР¶РёС‚ С„СѓРЅРєС†РёСЏ РёР· Р±РµРіРёРЅР°
 	if (table.find(temp).atribute != table.find(temp1).atribute) {
-		std::cout << "\nТип функции не соответствует типу возвращаемого аргумента!\n";
+		std::cout << "\nРўРёРї С„СѓРЅРєС†РёРё РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ С‚РёРїСѓ РІРѕР·РІСЂР°С‰Р°РµРјРѕРіРѕ Р°СЂРіСѓРјРµРЅС‚Р°!\n";
 		return 0;
 	}
 	end->polska += temp.lexem + " RETURN\n";

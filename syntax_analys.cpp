@@ -31,40 +31,40 @@ bool synt_analysator::Begin(syntax_tree &t) {
 	info elem = lexemes.parse(fin, table);
 	if (elem.type != "INT") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ òèï ìåòîäà.\n" << " ñòðîêà " << err.str_number
-			<< "ïîçèöèÿ " << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ Ñ‚Ð¸Ð¿ Ð¼ÐµÑ‚Ð¾Ð´Ð°.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ " << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "BEGIN");
 	elem = lexemes.parse(fin, table);
 	if (elem.type != "IDENTIF") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëîñü èìÿ ìåòîäà.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»Ð¾ÑÑŒ Ð¸Ð¼Ñ Ð¼ÐµÑ‚Ð¾Ð´Ð°.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "BEGIN");
 	elem = lexemes.parse(fin, table);
 	if (elem.type != "LBRACKET") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë '('.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» '('.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "BEGIN");
 	elem = lexemes.parse(fin, table);
 	if (elem.type != "RBRACKET") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë ')'.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ')'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "BEGIN");
 	elem = lexemes.parse(fin, table);
 	if (elem.type != "LBRACE") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë '{'.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» '{'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "BEGIN");
@@ -98,8 +98,8 @@ bool synt_analysator::Descr(syntax_tree& t) {
 	info elem = lexemes.parse(fin, table);
 	if (elem.type != "INT") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ òèï ïåðåìåííîé.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ Ñ‚Ð¸Ð¿ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "DESCR");
@@ -112,8 +112,8 @@ bool synt_analysator::Descr(syntax_tree& t) {
 	elem = lexemes.parse(fin, table);
 	if (elem.type != "END_SYMBOL") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë ';'.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ';'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "DESCR");
@@ -124,8 +124,8 @@ bool synt_analysator::Varlist(syntax_tree& t) {
 	info elem = lexemes.parse(fin, table);
 	if (elem.type != "IDENTIF") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëîñü íàçâàíèå ïåðåìåííîé.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»Ð¾ÑÑŒ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "VARLIST");
@@ -173,8 +173,8 @@ bool synt_analysator::Op(syntax_tree& t) {
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "ASSIGN") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë '='.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» '='.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
@@ -188,8 +188,8 @@ bool synt_analysator::Op(syntax_tree& t) {
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "END_SYMBOL") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë ';'.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ';'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
@@ -199,24 +199,24 @@ bool synt_analysator::Op(syntax_tree& t) {
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "LBRACKET") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë '('.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» '('.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "IDENTIF") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëîñü íàçâàíèå ïåðåìåííîé.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»Ð¾ÑÑŒ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "ASSIGN") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë '='.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» '='.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
@@ -229,8 +229,8 @@ bool synt_analysator::Op(syntax_tree& t) {
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "END_SYMBOL") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë ';'.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ';'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
@@ -243,8 +243,8 @@ bool synt_analysator::Op(syntax_tree& t) {
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "END_SYMBOL") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë ';'.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ';'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
@@ -257,16 +257,16 @@ bool synt_analysator::Op(syntax_tree& t) {
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "RBRACKET") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë ')'.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ')'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "LBRACE") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë '{'.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» '{'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
@@ -279,16 +279,16 @@ bool synt_analysator::Op(syntax_tree& t) {
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "RBRACE") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë '}'.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» '}'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 		t.add_node_tree(elem.lex_plus_typ(), "OP");
 	}
 	else {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ îïåðàòîð.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	return 1;
@@ -305,8 +305,8 @@ bool synt_analysator::Condition(syntax_tree& t) {
 	if (elem.type != "EQUAL" && elem.type != "NON_EQUAL" && elem.type != "LESS_OR_EQUAL" &&
 		elem.type != "GREATER_OR_EQUAL" && elem.type != "GREATER" && elem.type != "LESS") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëàñü îïåðàöèÿ ñðàâíåíèÿ.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»Ð°ÑÑŒ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ñ ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ñ.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "CONDITION");
@@ -352,15 +352,15 @@ bool synt_analysator::S1mpleExpr(syntax_tree& t) {
 		elem = lexemes.parse(fin, table);
 		if (elem.type != "RBRACKET") {
 			err = lexemes.pos;
-			std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë ')'.\n" << " ñòðîêà " << err.str_number
-				<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+			std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ')'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+				<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 			return 0;
 		}
 	}
 	else if (elem.type != "IDENTIF" && elem.type != "NUMBER") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëîñü íàçâàíèå ïåðåìåííîé èëè ÷èñëî.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»Ð¾ÑÑŒ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹ Ð¸Ð»Ð¸ Ñ‡Ð¸ÑÐ»Ð¾.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "SIMPLE_EXPR");
@@ -371,32 +371,32 @@ bool synt_analysator::End(syntax_tree& t) {
 	info elem = lexemes.parse(fin, table);
 	if (elem.type != "RETURN") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ return.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ return.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "END");
 	elem = lexemes.parse(fin, table);
 	if (elem.type != "IDENTIF") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëîñü íàçâàíèå ïåðåìåííîé.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»Ð¾ÑÑŒ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "END");
 	elem = lexemes.parse(fin, table);
 	if (elem.type != "END_SYMBOL") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë ';'.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ';'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "END");
 	elem = lexemes.parse(fin, table);
 	if (elem.type != "RBRACE") {
 		err = lexemes.pos;
-		std::cout << "\nÎøèáêà! Îæèäàëñÿ ñèìâîë '}'.\n" << " ñòðîêà " << err.str_number
-			<< "\ ïîçèöèÿ" << err.position - elem.lexem.size() << "\n";
+		std::cout << "\nÐžÑˆÐ¸Ð±ÐºÐ°! ÐžÐ¶Ð¸Ð´Ð°Ð»ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» '}'.\n" << " ÑÑ‚Ñ€Ð¾ÐºÐ° " << err.str_number
+			<< "\ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ñ" << err.position - elem.lexem.size() << "\n";
 		return 0;
 	}
 	t.add_node_tree(elem.lex_plus_typ(), "END");

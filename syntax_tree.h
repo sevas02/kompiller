@@ -7,15 +7,15 @@
 
 class node_tree {
 private:
-	//поле узла (токен)
+	//РїРѕР»Рµ СѓР·Р»Р° (С‚РѕРєРµРЅ)
 	std::string field;
-	//вектор сыновей
+	//РІРµРєС‚РѕСЂ СЃС‹РЅРѕРІРµР№
 	std::vector<std::shared_ptr<node_tree>> net_nichego_vajnee_semji;
-	//польская запись
+	//РїРѕР»СЊСЃРєР°СЏ Р·Р°РїРёСЃСЊ
 	std::string polska;
 public:
 	friend class semantic_analysator;
-	//конструкторы
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 	node_tree() : field(""), net_nichego_vajnee_semji(std::vector<std::shared_ptr<node_tree>>()) {};
 	node_tree(std::string str) : field(str), net_nichego_vajnee_semji(std::vector<std::shared_ptr<node_tree>>(0)) {};
 	node_tree(const node_tree& obj) {
@@ -23,11 +23,11 @@ public:
 		this->net_nichego_vajnee_semji = obj.net_nichego_vajnee_semji;
 	}
 
-	//геттеры
+	//РіРµС‚С‚РµСЂС‹
 	std::string get_field() { return field; }
 	std::vector<std::shared_ptr<node_tree>>& get_childs() { return net_nichego_vajnee_semji; }
 
-	//сеттеры
+	//СЃРµС‚С‚РµСЂС‹
 	void set_field(std::string str) { field = str; }
 	void prinyatie_v_semju(std::string str, std::shared_ptr<node_tree> &elem) {
 		node_tree temp(str);
@@ -40,24 +40,24 @@ using node = std::shared_ptr<node_tree>;
 
 class syntax_tree {
 private:
-	//корень
+	//РєРѕСЂРµРЅСЊ
 	node root;
-	//добавление узла к дереву
+	//РґРѕР±Р°РІР»РµРЅРёРµ СѓР·Р»Р° Рє РґРµСЂРµРІСѓ
 	void add_node_tree(std::string, std::string, node&);
-	//вставка поддерева в дерево
+	//РІСЃС‚Р°РІРєР° РїРѕРґРґРµСЂРµРІР° РІ РґРµСЂРµРІРѕ
 	void insert_tree(syntax_tree& t, std::string ins_pos, node& cur_pos);
-	//вставка сыновей в дерево
+	//РІСЃС‚Р°РІРєР° СЃС‹РЅРѕРІРµР№ РІ РґРµСЂРµРІРѕ
 	void insert_sons(syntax_tree& t, std::string ins_pos, node& cur_pos);
-	//печать дерева
+	//РїРµС‡Р°С‚СЊ РґРµСЂРµРІР°
 	void print(std::ofstream& fout, node, int);
 public:
 	friend class semantic_analysator;
-	//конструкторы
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 	syntax_tree() { root = std::make_shared<node_tree>(node_tree("FUNCTION")); }
 	syntax_tree(std::string str) { root = std::make_shared<node_tree>(node_tree(str)); }
 	syntax_tree(syntax_tree& obj) { copy(obj.root, root); }
 
-	//сеттер
+	//СЃРµС‚С‚РµСЂ
 	void set_root(std::string str) {
 		root->set_field(str);
 	}
@@ -69,13 +69,13 @@ public:
 		print(fout, root, 0);
 	}
 
-	//вставка поддерева в дерево
+	//РІСЃС‚Р°РІРєР° РїРѕРґРґРµСЂРµРІР° РІ РґРµСЂРµРІРѕ
 	void insert_tree(syntax_tree& t, std::string ins_pos) { insert_tree(t, ins_pos, root); };
-	//вставка сыновей в дерево
+	//РІСЃС‚Р°РІРєР° СЃС‹РЅРѕРІРµР№ РІ РґРµСЂРµРІРѕ
 	void insert_sons(syntax_tree& t, std::string ins_pos) { insert_sons(t, ins_pos, root); };
-	//копирование
+	//РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	void copy(node& from, node& to);
-	//чистилка
+	//С‡РёСЃС‚РёР»РєР°
 	void uborshica() { root->get_childs().clear(); }
 };
 

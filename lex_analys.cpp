@@ -7,7 +7,7 @@
 #include <iostream>
 #include <fstream>
 
-//обновление ошибки
+//РѕР±РЅРѕРІР»РµРЅРёРµ РѕС€РёР±РєРё
 void pos_error::update_pos(char symb) {
 	position++;
 	if (symb == '\n') {
@@ -16,7 +16,7 @@ void pos_error::update_pos(char symb) {
 	}
 }
 
-//функция считывания следующего лексемы по тексту
+//С„СѓРЅРєС†РёСЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ СЃР»РµРґСѓСЋС‰РµРіРѕ Р»РµРєСЃРµРјС‹ РїРѕ С‚РµРєСЃС‚Сѓ
 std::string lex_analysator::next_word(std::ifstream& fin) {
 	std::string str = "";
 	while (true) {
@@ -43,7 +43,7 @@ std::string lex_analysator::next_word(std::ifstream& fin) {
 	return str;
 }
 
-//функция возврата лексемы в поток
+//С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‚Р° Р»РµРєСЃРµРјС‹ РІ РїРѕС‚РѕРє
 void lex_analysator::comeback_pos(std::ifstream& fin, std::string word) {
 	std::reverse(word.begin(), word.end());
 	for (auto symb : word) {
@@ -90,7 +90,7 @@ bool lex_analysator::is_space(char elem) {
 		!= space.end());
 }
 
-//проведение лексического анализа
+//РїСЂРѕРІРµРґРµРЅРёРµ Р»РµРєСЃРёС‡РµСЃРєРѕРіРѕ Р°РЅР°Р»РёР·Р°
 info lex_analysator::parse(std::ifstream& fin, hash_table& tab) {
 	std::string str = next_word(fin);
 	if (str == "") {

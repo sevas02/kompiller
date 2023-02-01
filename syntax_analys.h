@@ -5,7 +5,7 @@
 #include "hash_table.h"
 #include "syntax_tree.h"
 
-//синтаксический анализатор
+//СЃРёРЅС‚Р°РєСЃРёС‡РµСЃРєРёР№ Р°РЅР°Р»РёР·Р°С‚РѕСЂ
 class synt_analysator {
 private:
 	lex_analysator lexemes;

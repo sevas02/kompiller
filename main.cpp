@@ -16,7 +16,7 @@ int main() {
         semantic_analysator kukaji("polska.txt", anal.tree, anal.table);
         if (!kukaji.Function())
             return 0;
-        std::cout << "Ïðîãðàììà çàâåðøèëà ðàáîòó ñ êîäîì 0.";
+        std::cout << "ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð° Ð·Ð°Ð²ÐµÑ€ÑˆÐ¸Ð»Ð° Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ Ñ ÐºÐ¾Ð´Ð¾Ð¼ 0.";
         anal.print_tree(fout);
     }
 

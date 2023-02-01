@@ -13,7 +13,7 @@ hash_table::hash_table() {
     deleted = new node_table(-1, -1);
 }
 
-//хэш-функция
+//С…СЌС€-С„СѓРЅРєС†РёСЏ
 int hash_table::hash_function(std::string s) {
     unsigned int hash = 0;
     for (int i = 0; i < s.size(); i++)
@@ -21,12 +21,12 @@ int hash_table::hash_function(std::string s) {
     return hash % capacity;
 }
 
-//вставка ячейки с ключем и значением
+//РІСЃС‚Р°РІРєР° СЏС‡РµР№РєРё СЃ РєР»СЋС‡РµРј Рё Р·РЅР°С‡РµРЅРёРµРј
 void hash_table::insert_node(int key, info info) {
     node_table* temp = new node_table(key, info);
     int hash_idx = hash_function(info.lexem);
 
-    //поиск свободного места
+    //РїРѕРёСЃРє СЃРІРѕР±РѕРґРЅРѕРіРѕ РјРµСЃС‚Р°
     while (arr[hash_idx] != NULL &&
         arr[hash_idx]->key != key &&
         arr[hash_idx]->key != -1) {
@@ -41,14 +41,14 @@ void hash_table::insert_node(int key, info info) {
     arr[hash_idx] = temp;
 }
 
-//удаление ячейки
+//СѓРґР°Р»РµРЅРёРµ СЏС‡РµР№РєРё
 info hash_table::delete_node(int key) {
     int hash_idx = key;
-    //поиск узла по ключу
+    //РїРѕРёСЃРє СѓР·Р»Р° РїРѕ РєР»СЋС‡Сѓ
     while (arr[key] != NULL) {
         if (arr[key]->key == key) {
             node_table* temp = arr[key];
-            //помечаем ячейку
+            //РїРѕРјРµС‡Р°РµРј СЏС‡РµР№РєСѓ
             arr[key] = deleted;
             size--;
             return temp->value;
@@ -59,10 +59,10 @@ info hash_table::delete_node(int key) {
     return 0;
 }
 
-//поиск значения по ключу
+//РїРѕРёСЃРє Р·РЅР°С‡РµРЅРёСЏ РїРѕ РєР»СЋС‡Сѓ
 info hash_table::find(int key) {
     int counter = 0;
-    //поиск узла по ключу
+    //РїРѕРёСЃРє СѓР·Р»Р° РїРѕ РєР»СЋС‡Сѓ
     while (arr[key] != NULL) {
         if (counter++ > capacity)
             return info(-1);
@@ -74,7 +74,7 @@ info hash_table::find(int key) {
     return info(-1);
 }
 
-//запись таблицы в файл
+//Р·Р°РїРёСЃСЊ С‚Р°Р±Р»РёС†С‹ РІ С„Р°Р№Р»
 void hash_table::print(std::ofstream &fout) {
     for (int i = 0; i < capacity; i++) {
         if (arr[i] != NULL && arr[i]->key != -1)
@@ -83,7 +83,7 @@ void hash_table::print(std::ofstream &fout) {
     }
 }
 
-//обертки
+//РѕР±РµСЂС‚РєРё
 void hash_table::insert(info info) {
     insert_node(hash_function(info.lexem), info);
 }

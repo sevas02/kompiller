@@ -13,7 +13,7 @@ dka::dka() {
 
 std::string dka::checker(std::string str) {
 	int idx = 0;
-	//идем по автомату
+	//РёРґРµРј РїРѕ Р°РІС‚РѕРјР°С‚Сѓ
 	for (auto elem : str) {
 		idx = vec[idx].get_next(elem);
 		if (idx == -1)
